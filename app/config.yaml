@@ -1,0 +1,145 @@
+thread_num: 8
+
+image_dir: "Pictures/datasets/small_scale/david"
+
+output_dir: "Pictures/datasets/small_scale/david/partial_recon"
+
+features_dir: "Pictures/datasets/small_scale/david/partial_recon/features"
+
+matches_dir: "Pictures/datasets/small_scale/david/partial_recon/matches"
+
+#############################################
+####   configuration for image listing   ####
+#############################################
+
+# Specify the type of camera model (namespace: openMVG::cameras::EINTRINSIC)
+#  - static_cast<int>(PINHOLE_CAMERA): Pinhole
+#  - static_cast<int>(PINHOLE_CAMERA_RADIAL1): Pinhole radial 1
+#  - static_cast<int>(PINHOLE_CAMERA_RADIAL3): Pinhole radial 3 (default)
+#  - static_cast<int>(PINHOLE_CAMERA_BROWN): Pinhole brown 2
+#  - static_cast<int>(PINHOLE_CAMERA_FISHEYE): Pinhole with a simple Fish-eye distortion
+#  - static_cast<int>(CAMERA_SPHERICAL): Spherical camera
+camera_model_type: 3 # openMVG::cameras::EINTRINSIC::PINHOLE_CAMERA_RADIAL3
+
+# Group camera that share common properties if desired (leads to more faster & stable BA)
+#  - 0: each view have it's own camera intrinsic parameters,
+#  - 1: (default) view can share some camera intrinsic parameters
+group_camera_model: TRUE
+
+# the path that store the sensor width database file
+sensor_width_database: "EGSfM/ext/openMVG/openMVG/exif/sensor_width_database/sensor_width_camera_database.txt"
+
+
+######################################################
+####    configuration for feature extraction     #####
+######################################################
+
+# used to control the Image_describer configuration):
+#  - NORMAL_PRESET (default)
+#  - HIGH_PRESET
+#  - ULTRA_PRESET (Can take long time!)
+feature_quality: 1 # HIGH_PRESET
+
+#  Use a regions cache (only cache_size regions will be stored in memory
+#  If not used, all regions will be load in memory (0 by default)
+ui_max_cache_size: 0
+
+# Distance ratio to discard non meaningful matches (0.8f by default)
+distance_ratio: 0.8
+
+# maximum number of iterations (2048 by default)
+ransac_max_iteration: 2048
+
+# use the found geometric model to improve the 
+# pairwise correspondences(false by default)
+perform_guided_matching: FALSE
+
+# pairwise correspondences filtering thanks to robust model estimation
+geometric_model: f
+
+# nearest matching method: 
+#  - EMatcherType::BRUTE_FORCE_L2,
+#  - EMatcherType::ANN_L2,
+#  - EMatcherType::CASCADE_HASHING_L2,
+#  - EMatcherType::BRUTE_FORCE_HAMMING
+nearest_matching_method: CASCADE_HASHING_L2
+
+# uncomment to use predefined pair list
+# predefined_pair_list: ""
+
+# uncomment to enable video mode matching
+# video_mode_matching: 
+
+
+##################################################
+####   configuration for similarity search    ####
+##################################################
+
+# whether to use similarity search
+use_similarity_search: FALSE
+
+# vocabulary tree working directory
+vot_dir: ""
+
+# filename that stores all the path of sift file
+vot_sifts_file: ""
+
+# sift feature type used in vocabulary tree
+#  - E3D_SIFT
+#  - OPENMVG_FEAT(default)
+vot_sift_type: 1 # OPENMVG_FEAT
+
+# depth of vocabulary tree
+vot_depth: 6
+
+# branch number of vocabulary tree
+vot_branch_num: 8
+
+# Intrinsic parameters refinement option
+intrinsic_refinement_option: ADJUST_ALL
+
+
+###############################################
+####    configuration for image cluster    ####
+###############################################
+
+# filename that stores all the images' path
+# img_list: ""
+
+# stores the weight of cluster graph
+# weight_file: ""
+
+# image cluster option:
+#  - naive: divide images into clusters with no intersection
+#  - expansion: divide images into clusters with connected images
+cluster_option: expansion
+
+# maximum number of images in each cluster
+max_cluster_size: 10
+
+#  the repeated ratio of images
+completeness_ratio: 0.6
+
+# 
+relax_ratio: 0.35
+
+# define whether to copy images into sub-folders after image clustering
+copy_images: FALSE
+
+# batched_sfm_initilizer: 
+
+# maximal pixels reprojection error that will be considered for triangulations(4.0 by default)
+max_triangulation_repro_err: 4.0
+
+
+#########################################
+####   configuration for sfm align   ####
+#########################################
+
+# sfm_datas_path: ""
+
+align_use_common_cameras: TRUE
+
+align_use_common_structures: FALSE
+
+perform_global_ba: FALSE

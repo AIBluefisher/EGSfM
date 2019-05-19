@@ -1,0 +1,1 @@
+target_link_libraries(${targetname} ${STLPLUS3_LIBRARIES})

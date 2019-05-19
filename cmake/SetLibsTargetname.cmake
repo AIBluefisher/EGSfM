@@ -1,0 +1,5 @@
+# if(${headers})
+    add_library(${targetname} ${headers} ${sources})
+# else()
+    # add_library(${targetname} ${sources})
+# endif(${headers})

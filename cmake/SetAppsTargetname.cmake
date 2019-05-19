@@ -1,0 +1,5 @@
+if(${headers})
+    add_executable(${targetname} ${headers} ${sources})
+else()
+    add_executable(${targetname} ${sources})
+endif()
