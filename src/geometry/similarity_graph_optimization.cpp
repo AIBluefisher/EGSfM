@@ -110,7 +110,7 @@ void SimilarityGraphOptimization::SimilarityAveraging(
 
     ceres::Solver::Options options;
     options.num_threads = ba_option.num_threads;
-    options.num_linear_solver_threads = ba_option.num_linear_solver_threads;
+    // options.num_linear_solver_threads = ba_option.num_linear_solver_threads;
     options.linear_solver_type = ba_option.linear_solver_type;
     options.sparse_linear_algebra_library_type = ba_option.sparse_linear_algebra_library_type;
     options.preconditioner_type = ba_option.preconditioner_type;
