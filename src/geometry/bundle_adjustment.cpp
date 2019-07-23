@@ -62,7 +62,7 @@ void BundleAdjuster::Refine(SfM_Data& sfm_data, const RefineOption& refine_optio
 
     ceres::Solver::Options options;
     options.num_threads = _ba_option.num_threads;
-    options.num_linear_solver_threads = _ba_option.num_linear_solver_threads;
+    // options.num_linear_solver_threads = _ba_option.num_linear_solver_threads;
     options.linear_solver_type = _ba_option.linear_solver_type;
     options.sparse_linear_algebra_library_type = _ba_option.sparse_linear_algebra_library_type;
     options.preconditioner_type = _ba_option.preconditioner_type;
