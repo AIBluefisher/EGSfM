@@ -109,11 +109,15 @@ template <typename T1, typename T2>
 bool Graph<T1, T2>::RemoveSingletonNodes()
 {
     // this->CountDegrees();
-    for (auto it = _degrees.begin(); it != _degrees.end(); ++it) {
+    for (auto it = _degrees.begin(); it != _degrees.end();) {
         if (it->second == 0) {
-            _nodes.erase(it->first);
-            _degrees.erase(it->first);
+            auto itErase = it;
+            it++;
+            _nodes.erase(itErase->first);
+            _degrees.erase(itErase->first);
+            continue;
         }
+        it++;
     }
     return true;
 }
