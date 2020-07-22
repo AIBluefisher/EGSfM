@@ -2,7 +2,7 @@
 
 
 ## 1. Overview of EGSfM
-**This is an enhanced version of my original `GraphSfM`.**
+**This is a similar version of my `GraphSfM`.**
 
 Our Structure from Motion approach, named **```Graph Structure from Motion```**, is aimed at large scale 3D reconstruction. Besides, we aimed at exploring the computation ability of computer and making SfM easily transferred to distributed system. Our work is partially based on an early version of [OpenMVG](https://github.com/openMVG/openMVG), while more robust and efficient than state-of-the-art open source Structure from Motion approaches (We rank **5-th** in [Tanks and Temples dataset](https://www.tanksandtemples.org/leaderboard/) - the **highest** rank of open-source 3D reconstruction systems).
 
