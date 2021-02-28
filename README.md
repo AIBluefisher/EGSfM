@@ -1,10 +1,9 @@
-# Enhanced Graph Structure from Motion (EGSfM)
+# Graph Structure from Motion (GraphSfM)
+**This project is not maintained anymore.**
 
+## 1. Overview of GraphSfM
 
-## 1. Overview of EGSfM
-**This is a similar version of my `GraphSfM`.**
-
-Our Structure from Motion approach, named **```Graph Structure from Motion```**, is aimed at large scale 3D reconstruction. Besides, we aimed at exploring the computation ability of computer and making SfM easily transferred to distributed system. Our work is partially based on an early version of [OpenMVG](https://github.com/openMVG/openMVG), while more robust and efficient than state-of-the-art open source Structure from Motion approaches (We rank **5-th** in [Tanks and Temples dataset](https://www.tanksandtemples.org/leaderboard/) - the **highest** rank of open-source 3D reconstruction systems).
+Our Structure from Motion approach, named **```Graph Structure from Motion```**, is aimed at large scale 3D reconstruction. Besides, we aimed at exploring the computation ability of computer and making SfM easily transferred to distributed system. Our work is partially based on an early version of [OpenMVG](https://github.com/openMVG/openMVG).
 
 In our work, 3D reconstruction is deemed as a ```divide-and-conquer``` problem. Our adaptive graph cluster algorithm divides images into different clusters, while images with high relativity remained in the same group. The strong/weak spanning tree (ST) conditions enhance the connectivity between clusters, and make
 multiple point clouds alignment more robust. After the completion of local SfM in all clusters, an elaborate graph initialization and MST construction algorithm is designed to accurately merge clusters, and cope well with drift problems. The two proposed graph-based algorithms make SfM more efficient and robust - the graph cluster algorithm accelerate the SfM step while guarantee the robustness of clusters merging, and the MST construction makes point clouds alignment as accurate as possible. Our approach can reconstruct large scale data-set in one single machine with very high accuracy and efficiency.
